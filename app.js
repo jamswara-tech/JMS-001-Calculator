@@ -1,31 +1,31 @@
-// app.js
-const readline = require('readline');
+// Example app.js using Express
+const express = require('express');
+const app = express();
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
+// Use process.env.PORT for Heroku or default to 3000 locally
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
 
-// Function to ask the user for a number
-function askNumber(question) {
-  return new Promise((resolve) => {
-    rl.question(question, (answer) => {
-      resolve(parseFloat(answer));
-    });
-  });
-}
+app.get('/', (req, res) => {
+    // Respond with a simple HTML form or result of an addition
+    res.send(`
+        <form action="/add" method="GET">
+            <label>First Number: <input type="number" name="num1"></label><br>
+            <label>Second Number: <input type="number" name="num2"></label><br>
+            <button type="submit">Add</button>
+        </form>
+    `);
+});
 
-async function addNumbers() {
-  try {
-    const num1 = await askNumber('Enter the first number: ');
-    const num2 = await askNumber('Enter the second number: ');
+app.get('/add', (req, res) => {
+    const num1 = parseFloat(req.query.num1);
+    const num2 = parseFloat(req.query.num2);
     const sum = num1 + num2;
-    console.log(`The sum of ${num1} and ${num2} is ${sum}`);
-    rl.close();
-  } catch (error) {
-    console.error('Invalid input, please enter numbers only.');
-    rl.close();
-  }
-}
+    res.send(`The sum of ${num1} and ${num2} is ${sum}`);
+});
 
-addNumbers();
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
