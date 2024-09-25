@@ -2,13 +2,6 @@
 const express = require('express');
 const app = express();
 
-// Use the port Heroku provides or default to 3000 locally
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
-
 app.get('/', (req, res) => {
     // Respond with a simple HTML form or result of an addition
     res.send(`
@@ -27,6 +20,9 @@ app.get('/add', (req, res) => {
     res.send(`The sum of ${num1} and ${num2} is ${sum}`);
 });
 
+// Use the port Heroku provides or default to 3000 locally
+const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
