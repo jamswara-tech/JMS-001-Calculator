@@ -2,10 +2,11 @@
 const express = require('express');
 const app = express();
 
-// Use process.env.PORT for Heroku or default to 3000 locally
+// Use the port Heroku provides or default to 3000 locally
 const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
 
 app.get('/', (req, res) => {
