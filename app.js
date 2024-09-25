@@ -16,8 +16,8 @@ app.get('/', (req, res) => {
 app.get('/add', (req, res) => {
     const num1 = parseFloat(req.query.num1);
     const num2 = parseFloat(req.query.num2);
-    const subtract = num1 - num2;
-    res.send(`The difference of ${num1} and ${num2} is ${sum}`);
+    const sum = num1 + num2;
+    res.send(`The sum of ${num1} and ${num2} is ${sum}`);
 });
 
 // Use the port Heroku provides or default to 3000 locally
