@@ -11,20 +11,20 @@ app.get('/', (req, res) => {
     // Respond with an HTML form
     res.send(`
         <div class="min-h-screen bg-gray-100 flex items-center justify-center">
-            <div class="bg-white p-8 rounded shadow-md w-full max-w-sm">
-                <h1 class="text-2xl font-bold mb-6 text-center text-gray-700">Calculator</h1>
+            <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-xs">
+                <h1 class="text-3xl font-semibold mb-8 text-center text-gray-800">Calculator</h1>
                 <form action="/calculate" method="POST" class="space-y-4">
                     <div>
-                        <label class="block text-gray-600">First Number:</label>
-                        <input type="number" name="num1" step="any" required class="mt-1 w-full p-2 border rounded" />
+                        <label class="block text-gray-700">First Number:</label>
+                        <input type="number" name="num1" step="any" required class="mt-1 w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
                     </div>
                     <div>
-                        <label class="block text-gray-600">Second Number:</label>
-                        <input type="number" name="num2" step="any" required class="mt-1 w-full p-2 border rounded" />
+                        <label class="block text-gray-700">Second Number:</label>
+                        <input type="number" name="num2" step="any" required class="mt-1 w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
                     </div>
                     <div>
-                        <label class="block text-gray-600">Operation:</label>
-                        <select name="operation" required class="mt-1 w-full p-2 border rounded">
+                        <label class="block text-gray-700">Operation:</label>
+                        <select name="operation" required class="mt-1 w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
                             <option value="add">Addition (+)</option>
                             <option value="subtract">Subtraction (-)</option>
                             <option value="multiply">Multiplication (*)</option>
@@ -33,14 +33,14 @@ app.get('/', (req, res) => {
                             <option value="exponent">Exponentiation (^)</option>
                         </select>
                     </div>
-                    <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded">Calculate</button>
+                    <button type="submit" class="w-full bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 transition-colors">Calculate</button>
                 </form>
             </div>
         </div>
     `);
 });
 
-app.post('/calculate', (req, res) => {
+app.post('/calculate', (req, res) => {  
     const num1 = parseFloat(req.body.num1);
     const num2 = parseFloat(req.body.num2);
     const operation = req.body.operation;
