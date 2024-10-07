@@ -5,25 +5,38 @@ const app = express();
 
 // Middleware to parse URL-encoded data from POST requests
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
     // Respond with an HTML form
     res.send(`
-        <form action="/calculate" method="POST">
-            <label>First Number: <input type="number" name="num1" step="any" required></label><br>
-            <label>Second Number: <input type="number" name="num2" step="any" required></label><br>
-            <label>Operation:
-                <select name="operation" required>
-                    <option value="add">Addition (+)</option>
-                    <option value="subtract">Subtraction (-)</option>
-                    <option value="multiply">Multiplication (*)</option>
-                    <option value="divide">Division (/)</option>
-                    <option value="modulus">Modulus (%)</option>
-                    <option value="exponent">Exponentiation (^)</option>
-                </select>
-            </label><br>
-            <button type="submit">Calculate</button>
-        </form>
+        <div class="min-h-screen bg-gray-100 flex items-center justify-center">
+            <div class="bg-white p-8 rounded shadow-md w-full max-w-sm">
+                <h1 class="text-2xl font-bold mb-6 text-center text-gray-700">Calculator</h1>
+                <form action="/calculate" method="POST" class="space-y-4">
+                    <div>
+                        <label class="block text-gray-600">First Number:</label>
+                        <input type="number" name="num1" step="any" required class="mt-1 w-full p-2 border rounded" />
+                    </div>
+                    <div>
+                        <label class="block text-gray-600">Second Number:</label>
+                        <input type="number" name="num2" step="any" required class="mt-1 w-full p-2 border rounded" />
+                    </div>
+                    <div>
+                        <label class="block text-gray-600">Operation:</label>
+                        <select name="operation" required class="mt-1 w-full p-2 border rounded">
+                            <option value="add">Addition (+)</option>
+                            <option value="subtract">Subtraction (-)</option>
+                            <option value="multiply">Multiplication (*)</option>
+                            <option value="divide">Division (/)</option>
+                            <option value="modulus">Modulus (%)</option>
+                            <option value="exponent">Exponentiation (^)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded">Calculate</button>
+                </form>
+            </div>
+        </div>
     `);
 });
 

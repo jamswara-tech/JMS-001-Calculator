@@ -2,14 +2,16 @@
   "name": "addition-app",
   "version": "1.0.0",
   "main": "app.js",
-  
   "scripts": {
     "start": "node app.js"
   },
   "engines": {
-  "node": ">=14.x"
+    "node": ">=14.x"
   },
   "dependencies": {
     "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.13"
   }
 }
