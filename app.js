@@ -2,10 +2,16 @@
 const express = require('express');
 // creating an instance of an express app
 const app = express();
+const path = require('path');
 
 // Middleware to parse URL-encoded data from POST requests
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
+
+// Serve index.html file
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 app.get('/', (req, res) => {
     // Respond with an HTML form

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="/tailwind.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white shadow-lg rounded-lg p-6 max-w-sm w-full">
+        <h1 class="text-2xl font-bold mb-4 text-center">Calculator</h1>
+        <form id="calculatorForm" class="space-y-4">
+            <div>
+                <label for="firstNumber" class="block text-gray-700">First Number:</label>
+                <input type="number" id="firstNumber" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-200" required>
+            </div>
+            <div>
+                <label for="secondNumber" class="block text-gray-700">Second Number:</label>
+                <input type="number" id="secondNumber" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-200" required>
+            </div>
+            <div>
+                <label for="operation" class="block text-gray-700">Operation:</label>
+                <select id="operation" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-200">
+                    <option value="+">Addition (+)</option>
+                    <option value="-">Subtraction (-)</option>
+                    <option value="*">Multiplication (*)</option>
+                    <option value="/">Division (/)</option>
+                    <option value="%">Modulus (%)</option>
+                </select>
+            </div>
+            <button id="calculate" type="submit" class="w-full bg-indigo-500 text-white py-2 rounded-md hover:bg-indigo-600">Calculate</button>
+        </form>
+        <div id="result" class="mt-4 text-center text-lg font-bold text-gray-700"></div>
+    </div>
+
+    <script>
+        document.getElementById("calculatorForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const firstNumber = parseFloat(document.getElementById("firstNumber").value);
+            const secondNumber = parseFloat(document.getElementById("secondNumber").value);
+            const operation = document.getElementById("operation").value;
+
+            let result;
+            switch (operation) {
+                case "+":
+                    result = firstNumber + secondNumber;
+                    break;
+                case "-":
+                    result = firstNumber - secondNumber;
+                    break;
+                case "*":
+                    result = firstNumber * secondNumber;
+                    break;
+                case "/":
+                    result = firstNumber / secondNumber;
+                    break;
+                case "%":
+                    result = firstNumber % secondNumber;
+                    break;
+            }
+
+            document.getElementById("result").textContent = `Result: ${result}`;
+        });
+    </script>
+</body>
+</html>
