@@ -13,20 +13,19 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-<<<<<<< HEAD
 app.get('/', (req, res) => {
     // Respond with an HTML form
     res.send(`
         <div class="min-h-screen bg-gray-100 flex items-center justify-center">
             <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-xs">
-                <h1 class="text-3xl font-semibold mb-8 text-center text-gray-800">Shubo's Calculator</h1>
+                <h1 class="text-3xl font-semibold mb-8 text-center text-gray-800">Calculator</h1>
                 <form action="/calculate" method="POST" class="space-y-4">
                     <div>
-                        <label class="block text-gray-700">Calcultor 1st Number:</label>
+                        <label class="block text-gray-700">First Number:</label>
                         <input type="number" name="num1" step="any" required class="mt-1 w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
                     </div>
                     <div>
-                        <label class="block text-gray-700">Calcultor 2nd Number:</label>
+                        <label class="block text-gray-700">Second Number:</label>
                         <input type="number" name="num2" step="any" required class="mt-1 w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
                     </div>
                     <div>
@@ -46,40 +45,6 @@ app.get('/', (req, res) => {
         </div>
     `);
 });
-=======
-//app.get('/', (req, res) => {
-//    // Respond with an HTML form
-//    res.send(`
-//        <div class="min-h-screen bg-gray-100 flex items-center justify-center">
-//            <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-xs">
-//                <h1 class="text-3xl font-semibold mb-8 text-center text-gray-800">Calculator</h1>
-//                <form action="/calculate" method="POST" class="space-y-4">
-//                    <div>
-//                        <label class="block text-gray-700">First Number:</label>
-//                        <input type="number" name="num1" step="any" required class="mt-1 w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
-//                    </div>
-//                    <div>
-//                        <label class="block text-gray-700">Second Number:</label>
-//                        <input type="number" name="num2" step="any" required class="mt-1 w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
-//                    </div>
-//                    <div>
-//                        <label class="block text-gray-700">Operation:</label>
-//                        <select name="operation" required class="mt-1 w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
-//                            <option value="add">Addition (+)</option>
-//                            <option value="subtract">Subtraction (-)</option>
-//                            <option value="multiply">Multiplication (*)</option>
-//                            <option value="divide">Division (/)</option>
-//                            <option value="modulus">Modulus (%)</option>
-//                            <option value="exponent">Exponentiation (^)</option>
-//                        </select>
-//                    </div>
-//                    <button type="submit" class="w-full bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 transition-colors">Calculate</button>
-//                </form>
-//            </div>
-//        </div>
-//    `);
-//});
->>>>>>> e0748959eb9b60cf027177c9d86f8016fef87324
 
 app.post('/calculate', (req, res) => {  
     const num1 = parseFloat(req.body.num1);
