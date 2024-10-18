@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
     res.send(`
         <div class="min-h-screen bg-gray-100 flex items-center justify-center">
             <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-xs">
-                <h1 class="text-3xl font-semibold mb-8 text-center text-gray-800">Calculator</h1>
+                <h1 class="text-3xl font-semibold mb-8 text-center text-gray-800">Shubo's Calculator</h1>
                 <form action="/calculate" method="POST" class="space-y-4">
                     <div>
                         <label class="block text-gray-700">First Number:</label>
