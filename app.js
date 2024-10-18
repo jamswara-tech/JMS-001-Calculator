@@ -21,11 +21,11 @@ app.get('/', (req, res) => {
                 <h1 class="text-3xl font-semibold mb-8 text-center text-gray-800">Shubo's Calculator</h1>
                 <form action="/calculate" method="POST" class="space-y-4">
                     <div>
-                        <label class="block text-gray-700">First Number:</label>
+                        <label class="block text-gray-700">Calcultor First Number:</label>
                         <input type="number" name="num1" step="any" required class="mt-1 w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
                     </div>
                     <div>
-                        <label class="block text-gray-700">Second Number:</label>
+                        <label class="block text-gray-700">Calcultor Second Number:</label>
                         <input type="number" name="num2" step="any" required class="mt-1 w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
                     </div>
                     <div>
