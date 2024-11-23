@@ -1,20 +1,15 @@
-// importing the express module
+// Importing required modules
 const express = require('express');
-// creating an instance of an express app
-const app = express();
 const path = require('path');
+
+const app = express();
 
 // Middleware to parse URL-encoded data from POST requests
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-// Serve index.html file
+// Serve the calculator form directly
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-app.get('/', (req, res) => {
-    // Respond with an HTML form
     res.send(`
         <div class="min-h-screen bg-gray-100 flex items-center justify-center">
             <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-xs">
@@ -46,14 +41,15 @@ app.get('/', (req, res) => {
     `);
 });
 
-app.post('/calculate', (req, res) => {  
+// POST route to handle form submission and perform calculations
+app.post('/calculate', (req, res) => {
     const num1 = parseFloat(req.body.num1);
     const num2 = parseFloat(req.body.num2);
     const operation = req.body.operation;
     let result;
     let operationSymbol;
 
-    // Perform the calculation based on the operation
+    // Perform the calculation based on the selected operation
     switch (operation) {
         case 'add':
             result = num1 + num2;
@@ -93,9 +89,8 @@ app.post('/calculate', (req, res) => {
     `);
 });
 
-// Use the port Heroku provides or default to 3000 locally
+// Define the port and start the server
 const PORT = process.env.PORT || 3000;
-
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
